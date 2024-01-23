@@ -1,6 +1,7 @@
 let secretNumber = 0;
 let contador = 0;
-
+let listaNumerosRandom = [];
+let numeroMaximo = 10;
 function asignarTextoElemento(elemento, texto){
     let elementoHtml = document.querySelector(elemento);
     elementoHtml.innerHTML = texto;
@@ -28,17 +29,31 @@ function limpiarCaja(){
     
 }
 function generarNumeroSecreto(){
-    return Math.floor(Math.random()*10)+1;
+   let numeroGenerado = Math.floor(Math.random()*numeroMaximo)+1;
+   console.log(numeroGenerado);
+   console.log(listaNumerosRandom);
+   //Ya sorteo todos los números
+    if(listaNumerosRandom.length == numeroMaximo){
+        asignarTextoElemento('p','Ya se sortearon todos los números posibles');
+    }else{
+        if(listaNumerosRandom.includes(numeroGenerado)){
+            return generarNumeroSecreto();
+        }else{
+            listaNumerosRandom.push(numeroGenerado);
+            return numeroGenerado;
+       }
+    }
+
+   
 }
 function condicionesIniciales(){
     asignarTextoElemento('h1','Juego del número secreto');
-    asignarTextoElemento('p','Indica un número del 1 a 10');
+    asignarTextoElemento('p',`Indica un número del 1 a ${numeroMaximo}`);
     secretNumber = generarNumeroSecreto();
     console.log(secretNumber);
 
     contador = 1;
 }
-
 
 function nuevoJuego(){
     limpiarCaja();
@@ -185,3 +200,91 @@ calAreaYPerimetroCircular(radio);
 }
 let numeroT= 2;
 calculartabla(numeroT); */
+
+//challenghe 4
+
+let listaGenerica = [10,4,3,4,10];
+let listaLenguajesProgramacion = ['JavaScript','C','C++','Kotlin','Python'];
+
+listaLenguajesProgramacion.push('Java','Ruby','GoLand');
+console.log(listaLenguajesProgramacion);
+
+listaLenguajesProgramacion.reverse();
+console.log(listaLenguajesProgramacion);
+
+
+function sumarArray(total){
+    numeros = [11,3,5,12,5]
+    total= 0;
+    for ( let i = 0; i < numeros.length; i++){
+        total+=numeros[i];
+    }
+
+    console.log('La suma de datos del array  es: ' +total);
+    return total;
+}
+sumarArray();
+
+function listarNumeroMayorYMenor(){
+    let lista = listaGenerica.sort();
+    console.log(`El número mayor es: ${lista[lista.length-1]} y el número menor es ${lista[0]}`  );
+}
+listarNumeroMayorYMenor();
+
+
+function promedio(promediofinal){
+    let newtotal = sumarArray();
+    promediofinal = newtotal/numeros.length;
+    console.log("El promedio es: " +promediofinal);
+    return promediofinal;
+}
+promedio();
+
+function returnPosicion(posicion){
+    let listaGenerica2 = [11,3,5,12,5];
+
+    posicion=4;
+    if(posicion > listaGenerica2.length || posicion < listaGenerica2){
+        console.log("-1");
+    }else{
+        listaGenerica2[listaGenerica.length];
+        console.log(listaGenerica2);
+        console.log(listaGenerica2[listaGenerica2[1]]);
+    }
+    return posicion;
+}
+returnPosicion();
+
+//sumar 2 lista de números
+
+function sumarLista(suma2){
+    let lista1 = [1,2,3,4,5];
+    let lista2 = [1,2,3,4,5];
+    let newlista = [];
+    const length = lista1.length;
+    for(i=0; i<length;i++){
+       newlista = lista1[i]+lista2[i];
+    }
+    console.log("Nueva lista " + newlista);
+   
+}
+sumarLista();
+
+
+function multiplicarArray(){
+    const listaGenerica3 = [10, 112, 31, 14, 51];
+    const length = listaGenerica3.length;
+    for (i = 0; i<length;i++){
+        listaGenerica3[i]*=2;
+    }
+    console.log(listaGenerica3);
+}
+multiplicarArray();
+
+
+const array1 = [3, 8, 9, 16];
+
+// Pass a function to map
+const map1 = array1.map((i) => i * 2);
+
+console.log(map1);
