@@ -214,16 +214,15 @@ console.log(listaLenguajesProgramacion);
 
 
 function sumarArray(total){
-    numeros = [11,3,5,12,5]
     total= 0;
     for ( let i = 0; i < numeros.length; i++){
         total+=numeros[i];
     }
-
-    console.log('La suma de datos del array  es: ' +total);
     return total;
 }
-sumarArray();
+numeros = [11,3,5,12,5]
+let sumatotal=sumarArray(numeros);
+console.log('La suma de datos del array  es: ' +sumatotal);
 
 function listarNumeroMayorYMenor(){
     let lista = listaGenerica.sort();
@@ -238,22 +237,33 @@ function promedio(promediofinal){
     console.log("El promedio es: " +promediofinal);
     return promediofinal;
 }
-promedio();
 
-function returnPosicion(posicion){
-    let listaGenerica2 = [11,3,5,12,5];
 
-    posicion=4;
-    if(posicion > listaGenerica2.length || posicion < listaGenerica2){
+
+function returnPosicion(lista, elemento){
+
+    for(let i = 0; i<lista.length;i++){
+        if(lista[i]===elemento){
+            return i;
+        }
+        else{
+            return -1;
+        }
+    }
+    /* if(posicion > listaGenerica2.length || posicion < listaGenerica2){
         console.log("-1");
     }else{
         listaGenerica2[listaGenerica.length];
         console.log(listaGenerica2);
         console.log(listaGenerica2[listaGenerica2[1]]);
     }
-    return posicion;
+    return posicion; */
 }
-returnPosicion();
+let lista = [11,3,5,12,5];
+let elemento = 1;
+let valor = returnPosicion([1,2,3,4,5], 1);
+console.log("Este es el valor de la posición "  + valor);
+
 
 //sumar 2 lista de números
 
@@ -272,14 +282,16 @@ sumarLista();
 
 
 function multiplicarArray(){
-    const listaGenerica3 = [10, 112, 31, 14, 51];
     const length = listaGenerica3.length;
     for (i = 0; i<length;i++){
         listaGenerica3[i]*=2;
     }
-    console.log(listaGenerica3);
+    return listaGenerica3;
 }
-multiplicarArray();
+const listaGenerica3 = [10, 112, 31, 14, 51];
+let resultado_Multiplicar= multiplicarArray(listaGenerica3);
+console.log("Resultado de multiplicar lista *2 "+listaGenerica3);
+
 
 
 const array1 = [3, 8, 9, 16];
